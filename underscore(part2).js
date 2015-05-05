@@ -26,12 +26,15 @@ var _ = function() {
     filter: function(x, func) {
       var arr = [];
       for(var i = 0; i < x.length; i++) {
-        arr.push(func(x[i]));
+        if (func(x[i]) === true) {
+          arr.push(x[i]);
+        }
       }
       return arr;
     },
+    
   };
 }();
 
-_.filter([1,2,3,4,5,6], (function(num){ if (num % 2 === 0) {return num;}));
-
+var evens = _.filter([1, 2, 3, 4, 5, 6], function(num){ return num % 2 === 0; });
+console.log(evens);
