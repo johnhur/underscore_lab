@@ -40,9 +40,27 @@ var _ = function () {
 			}
 			return smallest;
 		},
-		shuffle: function() {},
-		sample: function(x) {
-			return x[Math.floor((Math.random()*x.length))];
+		shuffle: function() {
+				var rand1 = Math.floor(Math.random() * arr.length);
+				var rand2 = Math.floor(Math.random() * arr.length);
+				var temp = arr[rand2];
+				arr[rand2] = arr[rand1];
+				arr[rand1] = temp;
+			console.log(arr);
+		},
+		sample: function(arr, num) {
+ 			 var rand;
+ 			 if(num) {
+    			var result = [];
+    				for (var i = 0; i < num; i ++) {
+      				rand = Math.floor(Math.random() * arr.length);
+      				result.push(arr[rand]);
+    }
+   			console.log(result);
+  			} else {
+     			var rand = Math.floor(Math.random() * arr.length);
+      				console.log(arr[rand]);
+  }
 		},
 		difference: function(x,y) {
 			var miss = [];
@@ -61,7 +79,21 @@ var _ = function () {
 			}
 			return miss;
 		}, // difficulty with the difference function :(
-		indexOf: function() {},
-		pluck: function(x) {}
+		indexOf: function (inputArray, inputValue) {
+  for (var i = 0; i < inputArray.length; i ++) {
+    if (inputArray[i] === inputValue){
+      console.log(i);
+    }
+      return(-1);
+  }
+    
+},
+		pluck: function (list, inputKey) {
+  var arr = [];
+  for(var i = 0; i<list.length; i++) {
+    arr.push(list[i][inputKey]);
+  }
+  return arr;
+        }
 	};
 }();
